@@ -27,32 +27,54 @@ public class Zadatak1 {
         Scanner s = new Scanner(System.in);
         Random random = new Random();
 
-        for (int i = 0; i < 25 ; i++) {
-            int randomBroj = random.nextInt(1,10);
+        for (int i = 0; i < 25; i++) {
+            int randomBroj = random.nextInt(1, 10);
             niz.add(randomBroj);
-            if (i % 5 == 4){
+            if (i % 5 == 4) {
                 System.out.println(randomBroj + ",");
-            }else {
+            } else {
                 System.out.print(randomBroj + ",");
             }
         }
         System.out.println("Unesite poziciju: ");
         int pozicija = s.nextInt();
-
-        int srednji = niz.get(pozicija);
+        boolean imaNevalidnihPozicija = false;
+        int srednji = 0;
         int gore = 0;
-        if (pozicija - 5 > 0){
-            gore = niz.get(pozicija - 5);
+        int dole = 0;
+        int levo = 0;
+        int desno = 0;
+
+        if(pozicija < 25) {
+            srednji = niz.get(pozicija);
+            if (pozicija - 5 > 0) {
+                gore = niz.get(pozicija - 5);
+            } else {
+                imaNevalidnihPozicija = true;
+            }
+            if (pozicija + 5 < 25) {
+                dole = niz.get(pozicija + 5);
+            } else {
+                imaNevalidnihPozicija = true;
+            }
+            if (pozicija % 5 != 0){
+                levo = niz.get(pozicija - 1);
+            }else {
+                imaNevalidnihPozicija = true;
+            }
+            if (pozicija % 5 != 4){
+                desno = niz.get(pozicija + 1);
+            }else {
+                imaNevalidnihPozicija = true;
+            }
+        } else {
+            imaNevalidnihPozicija = true;
         }
-
-        int dole = niz.get(pozicija + 5);
-        int levo = niz.get(pozicija - 1);
-        int desno = niz.get(pozicija + 1);
-
-        int zbir = srednji + gore + dole + levo + desno;
-        System.out.println(zbir);
-
-
-
+        if (imaNevalidnihPozicija) {
+            System.out.println("Nevalidna pozicija");
+        } else {
+            int zbir = srednji + gore + dole + levo + desno;
+            System.out.println(zbir);
+        }
     }
 }
