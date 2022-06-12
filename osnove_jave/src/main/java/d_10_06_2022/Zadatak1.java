@@ -20,7 +20,7 @@ public class Zadatak1 {
         WebDriver driver = new ChromeDriver();
         driver.get("https://s.bootsnipp.com/iframe/Dq2X");
         List<WebElement> niz = driver.findElements(By.xpath("//div[contains(@class, 'col-md-12')]/div"));
-        for (int i = niz.size() - 1; i < niz.size(); i--) {
+        for (int i = niz.size() - 1; i > 0; i--) {
             WebElement element = niz.get(i);
             element.findElement(By.xpath("//div[last()][contains(@class, 'alert')]/button[last()]")).click();
             try {
