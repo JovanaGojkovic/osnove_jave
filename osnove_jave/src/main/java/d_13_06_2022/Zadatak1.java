@@ -57,8 +57,9 @@ public class Zadatak1 {
         wait.until(ExpectedConditions
              .elementToBeClickable(By.xpath("//div[contains(@class, 'sc-breuTD')]/img")));
         WebElement popUp = driver.findElement(By.xpath("//div[contains(@class, 'sc-breuTD')]/img"));
+        Thread.sleep(2000);
         wait.until(ExpectedConditions.visibilityOf(popUp))
-             .click();
+               .click();
         driver.findElement(By.xpath("//button[(text()='Use One Side Only')]"))
                .click();
 
@@ -73,7 +74,7 @@ public class Zadatak1 {
         wait.until(ExpectedConditions
                 .presenceOfAllElementsLocatedBy(By
                 .xpath("//div[contains(@class, 'sc-ftvSup')]/div[last()]/div/img")));
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         wait.until(ExpectedConditions
                 .elementToBeClickable(By.xpath("//div[contains(@class, 'sc-ftvSup')]/div[last()]/div[contains(@class, 'gmXCBU')]/img")))
                 .click();
@@ -91,7 +92,7 @@ public class Zadatak1 {
         img3.sendKeys(slika3.getAbsolutePath());
         wait.until(ExpectedConditions
                 .elementToBeClickable(By.xpath("//div[contains(@class, 'sc-ftvSup')]/div[last()]/div/img")));
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         wait.until(ExpectedConditions
                 .elementToBeClickable(By.xpath("//div[contains(@class, 'sc-ftvSup')]/div[last()]/div[contains(@class, 'gmXCBU')]/img")))
                 .click();
@@ -109,7 +110,7 @@ public class Zadatak1 {
         img4.sendKeys(slika4.getAbsolutePath());
         wait.until(ExpectedConditions
                 .elementToBeClickable(By.xpath("//div[contains(@class, 'sc-ftvSup')]/div[last()]/div/img")));
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         wait.until(ExpectedConditions
                  .elementToBeClickable(By.xpath("//div[contains(@class, 'sc-ftvSup')]/div[last()]/div[contains(@class, 'gmXCBU')]/img")))
                  .click();
@@ -120,6 +121,7 @@ public class Zadatak1 {
 
         driver.findElement(By.xpath("//div[contains(@class, 'emMrhw')]")).click();
         driver.findElement(By.xpath("//button[contains(@type, 'submit')]")).click();
+        Thread.sleep(2000);
         WebElement alert = driver.findElement(By.xpath("//*[@action='error']"));
         System.out.println("Vrednost je " + alert.getAttribute("action"));
 
